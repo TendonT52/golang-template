@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "LMS Database",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "lms",
+      "Username": "root",
+      "PassFile": "/pgpass",
+      "SSLMode": "prefer"
+    }
+  }
+}
