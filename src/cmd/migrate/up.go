@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/TendonT52/golang-template/app/repo"
+	"github.com/TendonT52/golang-template/app/db"
 )
 
 var MigrateUpCmd = &cobra.Command{
@@ -13,7 +13,7 @@ var MigrateUpCmd = &cobra.Command{
 	Short: "run migrations up",
 	Long:  `All pending migrations will be applied.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		err := repo.GetMigrate().MigrateUp()
+		err := db.GetMigrate().MigrateUp()
 		if err != nil {
 			return fmt.Errorf("migration failed: %w", err)
 		}

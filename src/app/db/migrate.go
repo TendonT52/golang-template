@@ -1,4 +1,4 @@
-package repo
+package db
 
 import (
 	"embed"
@@ -28,7 +28,7 @@ func LoadMigrate(conn Config) error {
 		return fmt.Errorf("cannot parse connection string: %w", err)
 	}
 	db := dbmate.New(u)
-	db.MigrationsDir = []string{"./app/repo/migrations"}
+	db.MigrationsDir = []string{"./app/db/migrations"}
 	db.FS = fs
 	migrate = &Migrate{db}
 	return nil
@@ -40,12 +40,12 @@ func GetMigrate() Migrate {
 
 func (m Migrate) MigrateUp() error {
 	m.MigrationsDir = []string{"./migrations"}
-	m.SchemaFile = "./app/repo/schema.sql"
+	m.SchemaFile = "./app/db/schema.sql"
 	return migrate.CreateAndMigrate()
 }
 
 func (m Migrate) MigrateDown() error {
 	m.MigrationsDir = []string{"./migrations"}
-	m.SchemaFile = "./app/repo/schema.sql"
+	m.SchemaFile = "./app/db/schema.sql"
 	return migrate.Rollback()
 }

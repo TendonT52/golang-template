@@ -6,12 +6,12 @@ import (
 	"github.com/spf13/viper"
 
 	"github.com/TendonT52/golang-template/app/api"
-	"github.com/TendonT52/golang-template/app/repo"
+	"github.com/TendonT52/golang-template/app/db"
 )
 
 type Config struct {
-	Server   api.Config  `mapstructure:"server"`
-	Database repo.Config `mapstructure:"database"`
+	Server   api.Config `mapstructure:"server"`
+	Database db.Config  `mapstructure:"database"`
 }
 
 var cfg *Config

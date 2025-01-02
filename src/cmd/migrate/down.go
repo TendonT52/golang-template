@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/TendonT52/golang-template/app/repo"
+	"github.com/TendonT52/golang-template/app/db"
 )
 
 var MigrateDownCmd = &cobra.Command{
@@ -13,7 +13,7 @@ var MigrateDownCmd = &cobra.Command{
 	Short: "run migrations down",
 	Long:  `Revert the most recent migration.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		err := repo.GetMigrate().MigrateDown()
+		err := db.GetMigrate().MigrateDown()
 		if err != nil {
 			return fmt.Errorf("migration failed: %w", err)
 		}

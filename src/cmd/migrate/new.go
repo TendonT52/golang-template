@@ -5,7 +5,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/TendonT52/golang-template/app/repo"
+	"github.com/TendonT52/golang-template/app/db"
 )
 
 var NewMigrationCmd = &cobra.Command{
@@ -44,7 +44,7 @@ lms migrate new alter_users_add_timestamps`,
 			return
 		}
 
-		err := repo.GetMigrate().NewMigration(args[0])
+		err := db.GetMigrate().NewMigration(args[0])
 		if err != nil {
 			fmt.Printf("Error creating migration: %v\n", err)
 			return
